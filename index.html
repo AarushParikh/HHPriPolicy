@@ -2,732 +2,237 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0a0a0a">
-<title>Summer Gains Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Gains - Training</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Space+Mono&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --black: #0a0a0a;
-    --white: #f5f2eb;
-    --orange: #ff5c00;
-    --gray: #1e1e1e;
-    --gray2: #2a2a2a;
-    --gray3: #333;
-    --muted: #777;
-    --text: #b0a99a;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: smooth; }
-  body { background:var(--black); color:var(--white); font-family:'DM Sans',sans-serif; font-size:15px; line-height:1.6; }
+:root {
+  --black:#0a0a0a;
+  --white:#f5f2eb;
+  --orange:#ff5c00;
+  --gray:#1e1e1e;
+  --gray2:#2a2a2a;
+  --muted:#777;
+}
 
-  /* NAV */
-  nav {
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(10,10,10,0.93); backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--gray2);
-    display:flex; align-items:center; justify-content:space-between;
-    padding:0 40px; height:56px;
-  }
-  .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--orange); letter-spacing:2px; }
-  .nav-links { display:flex; gap:24px; }
-  .nav-links a { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
-  .nav-links a:hover { color:var(--white); }
+body {
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:DM Sans;
+}
 
-  /* HERO */
-  .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:60px 60px 80px; position:relative; overflow:hidden; border-bottom:1px solid var(--gray2); }
-  .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse at 80% 20%, rgba(255,92,0,0.18) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(255,92,0,0.08) 0%, transparent 50%); }
-  .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:60px 60px; }
-  .hero-tag { font-family:'Space Mono',monospace; font-size:11px; color:var(--orange); letter-spacing:3px; text-transform:uppercase; margin-bottom:24px; position:relative; }
-  .hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(80px,14vw,160px); line-height:0.9; letter-spacing:2px; position:relative; }
-  .hero h1 span { color:var(--orange); display:block; }
-  .hero-sub { font-size:16px; color:var(--muted); margin-top:32px; max-width:460px; position:relative; font-weight:300; line-height:1.8; }
-  .hero-stats { display:flex; gap:48px; margin-top:48px; position:relative; flex-wrap:wrap; }
-  .stat { display:flex; flex-direction:column; }
-  .stat-val { font-family:'Bebas Neue',sans-serif; font-size:42px; color:var(--orange); line-height:1; }
-  .stat-label { font-size:10px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-top:4px; font-family:'Space Mono',monospace; }
+nav {
+  position:fixed;
+  top:0; left:0; right:0;
+  height:56px;
+  background:#0a0a0aee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+  border-bottom:1px solid #222;
+}
 
-  /* LAYOUT */
-  .container { max-width:920px; margin:0 auto; padding:0 40px; }
-  section { padding:80px 0; border-bottom:1px solid var(--gray2); }
-  .section-label { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
-  h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(48px,6vw,72px); line-height:1; letter-spacing:1px; margin-bottom:40px; }
-  p { color:var(--text); margin-bottom:16px; line-height:1.8; font-weight:300; }
-  strong { color:var(--white); font-weight:600; }
+.nav-logo {
+  font-family:"Bebas Neue";
+  color:var(--orange);
+  letter-spacing:2px;
+}
 
-  /* ── TRACKER ── */
-  .tracker-wrap { background:var(--gray); padding:40px; margin-bottom:3px; }
-  .tracker-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:28px; flex-wrap:wrap; gap:12px; }
-  .tracker-title { font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--white); }
-  .tracker-sub { font-family:'Space Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:1px; margin-top:4px; }
-  .week-nav { display:flex; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
-  .week-btn { background:var(--gray2); border:none; color:var(--white); cursor:pointer; font-family:'Space Mono',monospace; font-size:11px; padding:8px 16px; transition:background 0.15s; }
-  .week-btn:hover { background:var(--gray3); }
-  .week-label { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--orange); min-width:110px; text-align:center; }
-  .week-progress { flex:1; min-width:80px; height:4px; background:var(--gray2); border-radius:2px; overflow:hidden; }
-  .week-progress-fill { height:100%; background:var(--orange); transition:width 0.4s; border-radius:2px; }
-  .reset-btn { background:none; border:1px solid var(--gray3); color:var(--muted); font-family:'Space Mono',monospace; font-size:9px; letter-spacing:2px; padding:8px 14px; cursor:pointer; text-transform:uppercase; transition:all 0.15s; }
-  .reset-btn:hover { border-color:var(--muted); color:var(--white); }
+.nav-links a {
+  color:var(--muted);
+  margin-left:12px;
+  text-decoration:none;
+  font-size:12px;
+}
 
-  .days-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-bottom:24px; }
-  .day-cell { background:var(--gray2); padding:16px 8px; text-align:center; cursor:pointer; transition:all 0.15s; user-select:none; border-top:2px solid transparent; }
-  .day-cell:hover:not(.rest-day) { background:var(--gray3); }
-  .day-cell.done { background:rgba(255,92,0,0.15); border-top-color:var(--orange); }
-  .day-cell.rest-day { opacity:0.4; cursor:default; }
-  .day-cell-name { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
-  .day-cell.done .day-cell-name { color:var(--orange); }
-  .day-cell-type { font-size:10px; font-weight:500; color:var(--white); line-height:1.3; }
-  .day-cell-check { font-size:16px; margin-top:8px; opacity:0; transition:opacity 0.2s; color:var(--orange); }
-  .day-cell.done .day-cell-check { opacity:1; }
+.container {
+  max-width:900px;
+  margin:100px auto;
+  padding:0 20px;
+}
 
-  .tracker-summary { display:flex; gap:3px; flex-wrap:wrap; }
-  .summary-stat { background:var(--gray2); padding:20px 24px; flex:1; min-width:120px; }
-  .summary-val { font-family:'Bebas Neue',sans-serif; font-size:40px; color:var(--orange); line-height:1; }
-  .summary-lbl { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+h1 {
+  font-family:"Bebas Neue";
+  font-size:48px;
+  color:var(--orange);
+}
 
-  /* ── WEIGHTS ── */
-  .weights-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-  .weight-card { background:var(--gray); padding:24px; }
-  .weight-muscle { font-family:'Space Mono',monospace; font-size:9px; color:var(--orange); letter-spacing:3px; text-transform:uppercase; margin-bottom:6px; }
-  .weight-exercise { font-size:13px; font-weight:600; color:var(--white); margin-bottom:16px; line-height:1.3; }
-  .weight-input-row { display:flex; align-items:center; gap:8px; }
-  .weight-input { background:var(--gray2); border:1px solid var(--gray3); color:var(--white); font-family:'Bebas Neue',sans-serif; font-size:36px; width:100px; padding:6px 10px; text-align:center; outline:none; transition:border 0.15s; -moz-appearance:textfield; }
-  .weight-input::-webkit-outer-spin-button,.weight-input::-webkit-inner-spin-button { -webkit-appearance:none; }
-  .weight-input:focus { border-color:var(--orange); }
-  .weight-unit { font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); }
-  .weight-pr { font-family:'Space Mono',monospace; font-size:10px; color:var(--orange); margin-top:10px; opacity:0; transition:opacity 0.3s; }
-  .weight-pr.show { opacity:1; }
-  .weight-start { font-family:'Space Mono',monospace; font-size:9px; color:var(--muted); margin-top:4px; }
+button {
+  cursor:pointer;
+}
 
-  /* SCHEDULE */
-  .schedule-grid { display:grid; gap:3px; }
-  .day-row { display:grid; grid-template-columns:130px 1fr; gap:3px; }
-  .day-name { background:var(--gray2); padding:16px 20px; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; display:flex; align-items:center; color:var(--muted); }
-  .day-content { background:var(--gray2); padding:16px 24px; display:flex; align-items:center; font-size:14px; font-weight:500; flex-wrap:wrap; gap:8px; }
-  .day-row.active .day-name { background:var(--orange); color:var(--black); font-weight:700; }
-  .day-row.active .day-content { background:rgba(255,92,0,0.1); border-left:2px solid var(--orange); }
-  .day-row.rest .day-content { color:var(--muted); font-style:italic; }
-  .day-tag { display:inline-block; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:3px 8px; border-radius:2px; }
-  .tag-chest { background:rgba(255,92,0,0.2); color:var(--orange); }
-  .tag-arms  { background:rgba(255,180,50,0.2); color:#ffb432; }
-  .tag-back  { background:rgba(100,149,237,0.2); color:cornflowerblue; }
-  .tag-legs  { background:rgba(80,200,80,0.2); color:#6dbb6d; }
+/* WORKOUT CARDS */
+.card {
+  background:var(--gray);
+  padding:16px;
+  margin-bottom:10px;
+}
 
-  /* WORKOUTS */
-  .workout-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:3px; }
-  .workout-card { background:var(--gray); padding:32px; }
-  .workout-card.full { grid-column:1/-1; }
-  .workout-day-label { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
-  .chest-color { color:var(--orange); }
-  .arms-color  { color:#ffb432; }
-  .back-color  { color:cornflowerblue; }
-  .legs-color  { color:#6dbb6d; }
-  .workout-title { font-family:'Bebas Neue',sans-serif; font-size:32px; margin-bottom:4px; }
-  .workout-focus { font-size:12px; color:var(--muted); font-style:italic; margin-bottom:20px; }
-  .exercise-list { list-style:none; }
-  .exercise-list li { display:flex; justify-content:space-between; align-items:flex-start; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.05); color:#c0b9aa; font-size:13px; gap:8px; }
-  .exercise-list li:last-child { border-bottom:none; }
-  .exercise-name { flex:1; }
-  .exercise-sets { font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); white-space:nowrap; }
-  .badge { display:inline-block; background:rgba(255,92,0,0.18); color:var(--orange); font-family:'Space Mono',monospace; font-size:8px; letter-spacing:1px; padding:2px 5px; border-radius:1px; margin-left:6px; vertical-align:middle; }
+/* MODALS */
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  z-index:999;
+  padding:20px;
+}
 
-  /* TIMELINE */
-  .timeline { position:relative; padding-left:40px; }
-  .timeline::before { content:''; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:linear-gradient(to bottom,var(--orange),transparent); }
-  .timeline-item { position:relative; margin-bottom:32px; }
-  .timeline-item::before { content:''; position:absolute; left:-36px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--orange); border:2px solid var(--black); }
-  .timeline-week { font-family:'Space Mono',monospace; font-size:10px; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
-  .timeline-desc { color:var(--text); font-size:14px; font-weight:300; }
+.modal-box {
+  max-width:500px;
+  margin:auto;
+  background:var(--gray);
+  padding:20px;
+}
 
-  /* DIET */
-  .meal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-  .meal-card { background:var(--gray); padding:28px; }
-  .meal-time { font-family:'Space Mono',monospace; font-size:10px; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
-  .meal-name { font-family:'Bebas Neue',sans-serif; font-size:22px; margin-bottom:12px; }
-  .meal-protein { display:inline-block; background:rgba(255,92,0,0.15); color:var(--orange); font-family:'Space Mono',monospace; font-size:11px; padding:4px 10px; margin-bottom:12px; }
-  .meal-items { list-style:none; }
-  .meal-items li { color:#999; font-size:13px; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-weight:300; }
+.btn {
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+}
 
-  /* RULES */
-  .rules-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
-  .rule-card { background:var(--gray); padding:32px; }
-  .rule-number { font-family:'Bebas Neue',sans-serif; font-size:72px; line-height:1; color:rgba(255,92,0,0.1); margin-bottom:8px; }
-  .rule-title { font-family:'Bebas Neue',sans-serif; font-size:24px; margin-bottom:10px; }
-  .rule-body { color:#999; font-size:13px; font-weight:300; line-height:1.7; }
+.orange { background:var(--orange); color:black; font-weight:bold; }
 
-  /* OUTCOME */
-  .outcome-section { background:var(--gray); padding:60px; }
-  .outcome-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:40px; margin-top:40px; }
-  .outcome-val { font-family:'Bebas Neue',sans-serif; font-size:52px; color:var(--orange); line-height:1; }
-  .outcome-label { font-size:12px; color:var(--muted); margin-top:6px; font-weight:300; line-height:1.5; }
+.gray { background:#333; color:white; }
 
-  /* FOOTER */
-  .footer { padding:60px; text-align:center; }
-  .footer-title { font-family:'Bebas Neue',sans-serif; font-size:64px; letter-spacing:4px; margin-bottom:16px; }
-  .footer-title span { color:var(--orange); }
-  .footer p { color:var(--muted); font-size:13px; }
-
-  @media(max-width:700px){
-    nav { padding:0 16px; }
-    .nav-links { gap:12px; }
-    .nav-links a { font-size:9px; }
-    .hero { padding:80px 24px 60px; }
-    .container { padding:0 20px; }
-    .workout-grid,.rules-grid { grid-template-columns:1fr; }
-    .meal-grid { grid-template-columns:1fr; }
-    .weights-grid { grid-template-columns:1fr 1fr; }
-    .outcome-grid { grid-template-columns:1fr 1fr; }
-    .outcome-section { padding:32px 20px; }
-    .footer { padding:40px 20px; }
-    .tracker-wrap { padding:24px 16px; }
-    .day-cell { padding:10px 4px; }
-    .day-cell-type { font-size:8px; }
-    .day-row { grid-template-columns:90px 1fr; }
-  }
+/* TIMER */
+#timer {
+  font-size:42px;
+  margin:10px 0;
+  font-family:"Bebas Neue";
+}
 </style>
 </head>
+
 <body>
 
 <nav>
   <div class="nav-logo">BUILD DIFFERENT</div>
   <div class="nav-links">
-    <a href="#tracker">Tracker</a>
-    <a href="#weights">Weights</a>
-    <a href="#split">Split</a>
-    <a href="#workouts">Workouts</a>
-    <a href="#fuel">Fuel</a>
+    <a href="#">Home</a>
+    <a href="fuel.html">Fuel</a>
+    <button onclick="openWorkoutSelector()" class="gray btn" style="width:auto;padding:6px 10px;">Start</button>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-tag">// Summer Training Program 2025 — Chest & Arms Focus</div>
-  <h1>BUILD<span>DIFFERENT.</span></h1>
-  <p class="hero-sub">Chest. Arms. Full body transformation. 5 days a week. 12 weeks. Track every session, every pound, all summer.</p>
-  <div class="hero-stats">
-    <div class="stat"><span class="stat-val">147</span><span class="stat-label">Starting lbs</span></div>
-    <div class="stat"><span class="stat-val">5</span><span class="stat-label">Days / week</span></div>
-    <div class="stat"><span class="stat-val">150g</span><span class="stat-label">Protein / day</span></div>
-    <div class="stat"><span class="stat-val">12</span><span class="stat-label">Weeks</span></div>
+<div class="container">
+  <h1>TRAINING</h1>
+
+  <div class="card">5 day split active • progressive overload • 60 min sessions</div>
+</div>
+
+<!-- SELECT WORKOUT -->
+<div class="modal" id="selector">
+  <div class="modal-box">
+    <h2 style="color:var(--orange);font-family:Bebas Neue;">START WORKOUT</h2>
+
+    <select id="day">
+      <option value="0">Monday Chest</option>
+      <option value="1">Tuesday Back</option>
+      <option value="3">Thursday Legs</option>
+      <option value="4">Friday Chest Pump</option>
+      <option value="5">Saturday Arms</option>
+    </select>
+
+    <button class="btn orange" onclick="startWorkout()">Begin</button>
+    <button class="btn gray" onclick="closeSelector()">Cancel</button>
   </div>
 </div>
 
-<!-- TRACKER -->
-<section id="tracker" style="background:var(--gray);">
-  <div class="container">
-    <div class="section-label">// 01 — Progress Tracker</div>
-    <h2>YOUR SUMMER</h2>
+<!-- ACTIVE WORKOUT -->
+<div class="modal" id="active">
+  <div class="modal-box">
+    <h2 style="font-family:Bebas Neue;color:var(--orange);">WORKOUT ACTIVE</h2>
 
-    <div class="tracker-wrap">
-      <div class="tracker-header">
-        <div>
-          <div class="tracker-title">WEEK <span id="currentWeekDisplay">1</span> OF 12</div>
-          <div class="tracker-sub">// tap a training day to mark it done</div>
-        </div>
-        <button class="reset-btn" onclick="resetWeek()">Reset Week</button>
-      </div>
+    <div id="timer">60:00</div>
+    <div id="title"></div>
 
-      <div class="week-nav">
-        <button class="week-btn" onclick="changeWeek(-1)">← PREV</button>
-        <div class="week-label" id="weekLabel">WEEK 1</div>
-        <div class="week-progress"><div class="week-progress-fill" id="weekFill" style="width:0%"></div></div>
-        <button class="week-btn" onclick="changeWeek(1)">NEXT →</button>
-      </div>
+    <div id="list"></div>
 
-      <div class="days-grid" id="daysGrid"></div>
-
-      <div class="tracker-summary">
-        <div class="summary-stat">
-          <div class="summary-val" id="weekDone">0/5</div>
-          <div class="summary-lbl">This week</div>
-        </div>
-        <div class="summary-stat">
-          <div class="summary-val" id="totalDone">0</div>
-          <div class="summary-lbl">Total sessions</div>
-        </div>
-        <div class="summary-stat">
-          <div class="summary-val" id="streakCount">0</div>
-          <div class="summary-lbl">Week streak</div>
-        </div>
-        <div class="summary-stat">
-          <div class="summary-val" id="pctDone">0%</div>
-          <div class="summary-lbl">Summer done</div>
-        </div>
-      </div>
-    </div>
+    <button class="btn orange" onclick="endWorkout()">Finish</button>
   </div>
-</section>
-
-<!-- MAX WEIGHTS -->
-<section id="weights">
-  <div class="container">
-    <div class="section-label">// 02 — Max Weight Tracker</div>
-    <h2>YOUR NUMBERS</h2>
-    <p style="margin-bottom:32px;">Log your working weight after each session. When you can hit 12 clean reps, <strong>go up next time.</strong> Your PR is tracked automatically — watch it climb all summer.</p>
-    <div class="weights-grid" id="weightsGrid"></div>
-  </div>
-</section>
-
-<!-- SCHEDULE -->
-<section id="split">
-  <div class="container">
-    <div class="section-label">// 03 — Weekly Schedule</div>
-    <h2>THE SPLIT</h2>
-    <p style="margin-bottom:32px;">Chest hits <strong>twice</strong> (Monday heavy, Friday pump). Arms hit <strong>twice</strong> with intentional fatigue management — Friday biceps are kept light so Saturday's dedicated arm day is fully fresh. Shoulders are joint-safe, side and rear delt only.</p>
-    <div class="schedule-grid">
-      <div class="day-row active">
-        <div class="day-name">Monday</div>
-        <div class="day-content">Chest & Triceps — Heavy Pressing Focus <span class="day-tag tag-chest">Chest</span></div>
-      </div>
-      <div class="day-row active">
-        <div class="day-name">Tuesday</div>
-        <div class="day-content">Back & Biceps — Pulling Focus <span class="day-tag tag-back">Back</span></div>
-      </div>
-      <div class="day-row rest">
-        <div class="day-name">Wednesday</div>
-        <div class="day-content">Rest & Recovery — walking, stretching, light mobility</div>
-      </div>
-      <div class="day-row active">
-        <div class="day-name">Thursday</div>
-        <div class="day-content">Legs & Shoulders — Side/Rear Delts Only, Joint Safe <span class="day-tag tag-legs">Legs</span></div>
-      </div>
-      <div class="day-row active">
-        <div class="day-name">Friday</div>
-        <div class="day-content">Chest & Biceps — Pump & Hypertrophy, Light Biceps <span class="day-tag tag-chest">Chest</span><span class="day-tag tag-arms">Arms</span></div>
-      </div>
-      <div class="day-row active">
-        <div class="day-name">Saturday</div>
-        <div class="day-content">Arm Day — Full Triceps & Biceps + Core <span class="day-tag tag-arms">Arms</span></div>
-      </div>
-      <div class="day-row rest">
-        <div class="day-name">Sunday</div>
-        <div class="day-content">Full Rest — sleep, eat, rebuild</div>
-      </div>
-    </div>
-    <p style="margin-top:24px; font-size:13px; color:var(--muted);">Friday biceps are intentionally 2–3 sets, isolation-only, so they're recovered and ready for Saturday. Saturday uses different angles and variations than Friday to hit the biceps fresh from a new stimulus.</p>
-  </div>
-</section>
-
-<!-- WORKOUTS -->
-<section id="workouts">
-  <div class="container">
-    <div class="section-label">// 04 — The Workouts</div>
-    <h2>SESSIONS</h2>
-
-    <p style="margin-bottom:32px;">
-      <strong>Rule:</strong> 6–12 rep range on compounds, 10–15 on accessories.
-      Hit top reps → increase weight next week.
-      <span style="color:var(--orange);">★ priority</span> = progressive overload lifts.
-      <span style="color:#60aaff;">⚡ pump</span> = isolation + control.
-    </p>
-
-    <div class="workout-grid">
-
-      <!-- MONDAY -->
-      <div class="workout-card">
-        <div class="workout-day-label chest-color">Monday</div>
-        <div class="workout-title">CHEST & TRIS (HEAVY)</div>
-        <div class="workout-focus">Strength + mechanical tension focus</div>
-        <ul class="exercise-list">
-          <li><span class="exercise-name">DB Flat Bench Press <span class="badge">★</span></span><span class="exercise-sets">4 × 6–8</span></li>
-          <li><span class="exercise-name">Incline DB Press <span class="badge">★</span></span><span class="exercise-sets">3 × 8–10</span></li>
-          <li><span class="exercise-name">Cable Fly (controlled stretch)</span><span class="exercise-sets">3 × 12–15</span></li>
-          <li><span class="exercise-name">Chest Dips (lean forward)</span><span class="exercise-sets">3 × 8–12</span></li>
-          <li><span class="exercise-name">Skull Crushers <span class="badge">★</span></span><span class="exercise-sets">3 × 8–10</span></li>
-        </ul>
-      </div>
-
-      <!-- TUESDAY -->
-      <div class="workout-card">
-        <div class="workout-day-label back-color">Tuesday</div>
-        <div class="workout-title">BACK & BICEPS</div>
-        <div class="workout-focus">Width + thickness balance</div>
-        <ul class="exercise-list">
-          <li><span class="exercise-name">Barbell Row <span class="badge">★</span></span><span class="exercise-sets">4 × 6–8</span></li>
-          <li><span class="exercise-name">Lat Pulldown <span class="badge">★</span></span><span class="exercise-sets">3 × 8–12</span></li>
-          <li><span class="exercise-name">Seated Cable Row</span><span class="exercise-sets">3 × 10–12</span></li>
-          <li><span class="exercise-name">Face Pulls</span><span class="exercise-sets">3 × 15–20</span></li>
-          <li><span class="exercise-name">DB Curl <span class="badge">★</span></span><span class="exercise-sets">3 × 8–12</span></li>
-        </ul>
-      </div>
-
-      <!-- WEDNESDAY -->
-      <div class="workout-card">
-        <div class="workout-day-label" style="color:var(--muted);">Wednesday</div>
-        <div class="workout-title">RECOVERY</div>
-        <div class="workout-focus">Walk, stretch, mobility, light core optional</div>
-      </div>
-
-      <!-- THURSDAY -->
-      <div class="workout-card">
-        <div class="workout-day-label legs-color">Thursday</div>
-        <div class="workout-title">LEGS (REAL GROWTH DAY)</div>
-        <div class="workout-focus">Full lower body hypertrophy</div>
-        <ul class="exercise-list">
-          <li><span class="exercise-name">Back Squat <span class="badge">★</span></span><span class="exercise-sets">4 × 6–10</span></li>
-          <li><span class="exercise-name">Romanian Deadlift <span class="badge">★</span></span><span class="exercise-sets">3 × 8–10</span></li>
-          <li><span class="exercise-name">Leg Press</span><span class="exercise-sets">3 × 10–12</span></li>
-          <li><span class="exercise-name">Leg Curl</span><span class="exercise-sets">3 × 10–15</span></li>
-          <li><span class="exercise-name">Calf Raises</span><span class="exercise-sets">4 × 12–15</span></li>
-          <li><span class="exercise-name">Lateral Raises</span><span class="exercise-sets">3 × 12–15</span></li>
-        </ul>
-      </div>
-
-      <!-- FRIDAY -->
-      <div class="workout-card">
-        <div class="workout-day-label chest-color">Friday</div>
-        <div class="workout-title">CHEST & ARMS (PUMP)</div>
-        <div class="workout-focus">Volume + blood flow (no CNS fatigue)</div>
-        <ul class="exercise-list">
-          <li><span class="exercise-name">Incline DB Press</span><span class="exercise-sets">3 × 10–12</span></li>
-          <li><span class="exercise-name">DB Flat Press</span><span class="exercise-sets">3 × 10–12</span></li>
-          <li><span class="exercise-name">Cable Fly ⚡</span><span class="exercise-sets">3 × 15</span></li>
-          <li><span class="exercise-name">Cable Curl ⚡</span><span class="exercise-sets">3 × 12–15</span></li>
-          <li><span class="exercise-name">Rope Pushdown ⚡</span><span class="exercise-sets">3 × 12–15</span></li>
-        </ul>
-      </div>
-
-      <!-- SATURDAY -->
-      <div class="workout-card full">
-        <div class="workout-day-label arms-color">SATURDAY</div>
-        <div class="workout-title">ARMS + CORE (SPECIALIZATION)</div>
-        <div class="workout-focus">High intensity, different angles, fresh arms</div>
-
-        <ul class="exercise-list" style="display:grid; grid-template-columns:1fr 1fr; gap:0 48px;">
-          <li><strong>BICEPS</strong></li>
-          <li><strong>TRICEPS</strong></li>
-
-          <li>Barbell Curl <span class="exercise-sets">3 × 8–10</span></li>
-          <li>Skull Crushers <span class="exercise-sets">3 × 8–10</span></li>
-
-          <li>Hammer Curl <span class="exercise-sets">3 × 10–12</span></li>
-          <li>Overhead Extension <span class="exercise-sets">3 × 10–12</span></li>
-
-          <li>Preacher Curl <span class="exercise-sets">2 × 12</span></li>
-          <li>Dips <span class="exercise-sets">2 × max</span></li>
-
-          <li><strong>CORE</strong></li>
-          <li><strong></strong></li>
-
-          <li>Hanging Leg Raises <span class="exercise-sets">3 × 10–15</span></li>
-          <li>Plank <span class="exercise-sets">3 × 60s</span></li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CREATINE -->
-<section>
-  <div class="container">
-    <div class="section-label">// 05 — Supplements</div>
-    <h2>CREATINE</h2>
-    <p><strong>5g every single day</strong> — training and rest days. Mix into post-workout shake. As a vegetarian your baseline creatine is naturally lower, meaning you'll likely respond better than most.</p>
-    <p style="margin-bottom:40px;">Minimum a gallon of water daily. More on training days. Non-negotiable.</p>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-week">Weeks 1–2</div>
-        <div class="timeline-desc">Saturating your muscle cells slowly. No noticeable effect yet — completely normal. Keep going.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-week">Weeks 3–4</div>
-        <div class="timeline-desc">Starting to feel stronger. Muscles looking fuller. You'll gain 2–4 lbs — that's water in your muscle cells. Not fat. That's the creatine working.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-week">Week 4+</div>
-        <div class="timeline-desc">Fully saturated. Extra reps on every set. Faster recovery between sets. Compounds across hundreds of sessions all summer.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIET -->
-<section id="fuel">
-  <div class="container">
-    <div class="section-label">// 06 — Vegetarian Diet</div>
-    <h2>FUEL</h2>
-    <p style="margin-bottom:8px;">Target: <strong>150g protein/day.</strong> Eating out 1–2× a week is fine — it's less than 10% of your meals. Make the other 90% count.</p>
-    <p style="margin-bottom:40px;">Being vegetarian just means being intentional. Here's what a full day looks like hitting your target.</p>
-    <div class="meal-grid">
-      <div class="meal-card">
-        <div class="meal-time">Breakfast</div>
-        <div class="meal-name">MORNING STACK</div>
-        <div class="meal-protein">~38g protein</div>
-        <ul class="meal-items">
-          <li>Protein bar</li>
-          <li>3–4 eggs or Greek yogurt</li>
-          <li>Creatine in water or juice</li>
-        </ul>
-      </div>
-      <div class="meal-card">
-        <div class="meal-time">Post-Gym</div>
-        <div class="meal-name">SHAKE #1</div>
-        <div class="meal-protein">~25–50g protein</div>
-        <ul class="meal-items">
-          <li>1–2 scoops whey or plant protein</li>
-          <li>Within 1 hour of training</li>
-          <li>Most important shake of the day</li>
-        </ul>
-      </div>
-      <div class="meal-card">
-        <div class="meal-time">Work Snacks</div>
-        <div class="meal-name">ON THE GO</div>
-        <div class="meal-protein">~20–25g protein</div>
-        <ul class="meal-items">
-          <li>Nuts + Greek yogurt cup</li>
-          <li>String cheese / hard boiled eggs</li>
-          <li>Cottage cheese cup</li>
-        </ul>
-      </div>
-      <div class="meal-card">
-        <div class="meal-time">Afternoon</div>
-        <div class="meal-name">SHAKE #2</div>
-        <div class="meal-protein">~25g protein</div>
-        <ul class="meal-items">
-          <li>1 scoop protein powder</li>
-          <li>2 hours before dinner</li>
-        </ul>
-      </div>
-      <div class="meal-card">
-        <div class="meal-time">Dinner</div>
-        <div class="meal-name">BIG MEAL</div>
-        <div class="meal-protein">~40–50g protein</div>
-        <ul class="meal-items">
-          <li>Paneer, lentils, tofu, or eggs</li>
-          <li>Rice, chickpeas, or black beans</li>
-          <li>Build the plate around protein</li>
-        </ul>
-      </div>
-      <div class="meal-card" style="background:rgba(255,92,0,0.07);border:1px solid rgba(255,92,0,0.18);">
-        <div class="meal-time" style="color:var(--white);">Daily Total</div>
-        <div class="meal-name" style="color:var(--orange);">145–190G</div>
-        <div class="meal-protein" style="background:rgba(255,92,0,0.3);">protein target ✓</div>
-        <ul class="meal-items">
-          <li style="color:var(--white);">Slight caloric surplus</li>
-          <li style="color:var(--white);">Eat more, don't diet</li>
-          <li style="color:var(--white);">Never skip breakfast</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RULES -->
-<section>
-  <div class="container">
-    <div class="section-label">// 07 — Non-Negotiables</div>
-    <h2>THE RULES</h2>
-    <div class="rules-grid">
-      <div class="rule-card">
-        <div class="rule-number">01</div>
-        <div class="rule-title">Sleep 8–9 Hours</div>
-        <p class="rule-body">Muscle is built while you sleep. Growth hormone peaks during deep sleep at 16. You are growing more efficiently right now than you ever will again. Don't waste it staying up late.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-number">02</div>
-        <div class="rule-title">Form Before Weight</div>
-        <p class="rule-body">First 2–3 weeks, go lighter and feel the right muscles. A strict 25 lb curl is worth more than a sloppy 40. Bad form causes injuries that end your whole summer in one session.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-number">03</div>
-        <div class="rule-title">Progressive Overload</div>
-        <p class="rule-body">Every session, try to do more than last time. One more rep, 5 more lbs. Update your numbers in the tracker. This single principle drives 90% of all muscle growth.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-number">04</div>
-        <div class="rule-title">Pain vs Soreness</div>
-        <p class="rule-body">Soreness the day after = normal. Sharp pain during a lift, joint pain, pain that won't go away = stop immediately. One injury can kill your entire summer. Know the difference.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-number">05</div>
-        <div class="rule-title">Don't Skip Legs</div>
-        <p class="rule-body">Legs are your biggest muscle group. Training them releases the most testosterone and growth hormone in your body. Skipping legs literally slows down your chest and arm gains.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-number">06</div>
-        <div class="rule-title">Consistency Wins</div>
-        <p class="rule-body">You will have bad days and bad weeks. That's normal. What matters is what you do next. One bad week won't ruin your summer. Quitting after a bad week will.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OUTCOME -->
-<section style="border-bottom:none;">
-  <div class="container">
-    <div class="section-label">// 08 — What To Expect</div>
-    <h2>THE OUTCOME</h2>
-    <div class="outcome-section">
-      <p style="color:var(--text); max-width:580px;">Lock in training, protein, creatine, and sleep — here's what you're walking back into school with.</p>
-      <div class="outcome-grid">
-        <div class="outcome-item"><div class="outcome-val">+15lbs</div><div class="outcome-label">realistic muscle gain by end of summer</div></div>
-        <div class="outcome-item"><div class="outcome-val">+15lbs</div><div class="outcome-label">on your curl — 25s to 35–40s by week 12</div></div>
-        <div class="outcome-item"><div class="outcome-val">Wk 4</div><div class="outcome-label">when you start seeing visible chest & arm changes</div></div>
-        <div class="outcome-item"><div class="outcome-val">Wk 8</div><div class="outcome-label">when other people start noticing</div></div>
-      </div>
-      <p style="margin-top:32px; color:#555; font-size:13px;">Chest fills out and pushes through shirts. Arms get visibly bigger. Back widens your entire silhouette. Clothes will fit completely differently. The jump from "never really lifted" to "trained seriously all summer" is one of the biggest visible changes you'll ever make — and you're making it at 16 when your body responds fastest.</p>
-    </div>
-  </div>
-</section>
-
-<div class="footer">
-  <div class="footer-title">GO GET <span>IT.</span></div>
-  <p>Chest×2 · Arms×2 · Back · Legs & Shoulders · Core · 150g protein · 5g creatine · 8–9hrs sleep</p>
-  <p style="margin-top:8px; color:#2a2a2a; font-size:12px;">Summer 2025 — built different</p>
 </div>
 
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────────
-const WEEK_DAYS = [
-  { name:'MON', type:'Chest & Tris',    rest:false },
-  { name:'TUE', type:'Back & Bis',      rest:false },
-  { name:'WED', type:'Rest',            rest:true  },
-  { name:'THU', type:'Legs & Delts',    rest:false },
-  { name:'FRI', type:'Chest & Bis',     rest:false },
-  { name:'SAT', type:'Arm Day + Core',  rest:false },
-  { name:'SUN', type:'Full Rest',       rest:true  },
-];
 
-const EXERCISES = [
-  // CHEST
-  { id:'db_bench',       name:'DB Flat Bench Press',    muscle:'CHEST',     start:'' },
-  { id:'incline_db',     name:'Incline DB Press',        muscle:'CHEST',     start:'' },
-  { id:'cable_fly',      name:'Cable Chest Fly',         muscle:'CHEST',     start:'' },
-  // BICEPS
-  { id:'db_curl',        name:'DB Bicep Curl',           muscle:'BICEPS',    start:'25' },
-  { id:'incline_curl',   name:'Incline DB Curl',         muscle:'BICEPS',    start:'' },
-  { id:'barbell_curl',   name:'Barbell Curl',            muscle:'BICEPS',    start:'' },
-  { id:'hammer_curl',    name:'Hammer Curl',             muscle:'BICEPS',    start:'' },
-  { id:'preacher_curl',  name:'Preacher Curl',           muscle:'BICEPS',    start:'' },
-  { id:'cable_curl',     name:'Cable Curl (light/pump)', muscle:'BICEPS',    start:'' },
-  // TRICEPS
-  { id:'skull_crush',    name:'Skull Crushers',          muscle:'TRICEPS',   start:'' },
-  { id:'tri_push',       name:'Tricep Rope Pushdown',    muscle:'TRICEPS',   start:'' },
-  { id:'tri_overhead',   name:'Overhead Tricep Ext.',    muscle:'TRICEPS',   start:'' },
-  // BACK
-  { id:'barbell_row',    name:'Barbell Row',             muscle:'BACK',      start:'' },
-  { id:'lat_pull',       name:'Lat Pulldown',            muscle:'BACK',      start:'' },
-  { id:'cable_row',      name:'Seated Cable Row',        muscle:'BACK',      start:'' },
-  // SHOULDERS (side/rear only)
-  { id:'lat_raise',      name:'Cable Lateral Raise',     muscle:'SIDE DELT', start:'' },
-  { id:'rear_fly',       name:'Rear Delt Cable Fly',     muscle:'REAR DELT', start:'' },
-  { id:'face_pull',      name:'Face Pulls',              muscle:'REAR DELT', start:'' },
-  // LEGS
-  { id:'squat',          name:'Back Squat',              muscle:'LEGS',      start:'' },
-  { id:'rdl',            name:'Romanian Deadlift',       muscle:'LEGS',      start:'' },
-  { id:'leg_press',      name:'Leg Press',               muscle:'LEGS',      start:'' },
-  // FULL BODY
-  { id:'deadlift',       name:'Deadlift',                muscle:'FULL BODY', start:'' },
-];
+let timer;
+let time = 60 * 60;
 
-const SK = 'summerGains2025v2';
+const workouts = {
+  0:["DB Bench","Incline DB Press","Fly","Dips","Skull Crushers"],
+  1:["Barbell Row","Lat Pulldown","Cable Row","Face Pulls","DB Curl"],
+  3:["Squat","RDL","Leg Press","Leg Curl","Calves"],
+  4:["Incline Press","DB Press","Cable Fly","Cable Curl","Pushdowns"],
+  5:["Barbell Curl","Hammer Curl","Preacher Curl","Skull Crushers","Hanging Leg Raise"]
+};
 
-function load() { try { return JSON.parse(localStorage.getItem(SK)) || {}; } catch { return {}; } }
-function save(d) { try { localStorage.setItem(SK, JSON.stringify(d)); } catch {} }
+function openWorkoutSelector(){
+  document.getElementById("selector").style.display="block";
+}
 
-let state = load();
-if (!state.days)    state.days    = {};
-if (!state.weights) state.weights = {};
-if (!state.week)    state.week    = 1;
+function closeSelector(){
+  document.getElementById("selector").style.display="none";
+}
 
-// ── TRACKER ──────────────────────────────────────────────────────────────────
-function renderDays() {
-  const grid = document.getElementById('daysGrid');
-  grid.innerHTML = '';
-  const w = state.week;
-  WEEK_DAYS.forEach((d, i) => {
-    const key  = `w${w}d${i}`;
-    const done = !d.rest && state.days[key];
-    const cell = document.createElement('div');
-    cell.className = 'day-cell' + (done ? ' done' : '') + (d.rest ? ' rest-day' : '');
-    cell.innerHTML = `<div class="day-cell-name">${d.name}</div><div class="day-cell-type">${d.type}</div><div class="day-cell-check">✓</div>`;
-    if (!d.rest) cell.onclick = () => { state.days[key] = !state.days[key]; save(state); renderDays(); };
-    grid.appendChild(cell);
+function startWorkout(){
+  let d = document.getElementById("day").value;
+  let list = workouts[d];
+
+  document.getElementById("selector").style.display="none";
+  document.getElementById("active").style.display="block";
+
+  document.getElementById("title").innerText =
+    document.getElementById("day").options[d].text;
+
+  let container = document.getElementById("list");
+  container.innerHTML="";
+
+  list.forEach(x=>{
+    let div=document.createElement("div");
+    div.className="card";
+    div.innerHTML="⬜ " + x;
+
+    div.onclick=()=>{
+      div.innerHTML = div.innerHTML.includes("⬜") ? "✅ "+x : "⬜ "+x;
+    };
+
+    container.appendChild(div);
   });
-  updateSummary();
+
+  startTimer();
 }
 
-function updateSummary() {
-  const w = state.week;
-  let wkDone = 0;
-  WEEK_DAYS.forEach((d, i) => { if (!d.rest && state.days[`w${w}d${i}`]) wkDone++; });
+function startTimer(){
+  clearInterval(timer);
 
-  let total = 0;
-  for (let wk = 1; wk <= 12; wk++)
-    WEEK_DAYS.forEach((d, i) => { if (!d.rest && state.days[`w${wk}d${i}`]) total++; });
+  timer=setInterval(()=>{
+    time--;
 
-  let streak = 0;
-  for (let wk = w; wk >= 1; wk--) {
-    let c = 0;
-    WEEK_DAYS.forEach((d, i) => { if (!d.rest && state.days[`w${wk}d${i}`]) c++; });
-    if (c === 5) streak++; else break;
-  }
+    let m=Math.floor(time/60);
+    let s=time%60;
 
-  document.getElementById('weekDone').textContent   = wkDone + '/5';
-  document.getElementById('totalDone').textContent  = total;
-  document.getElementById('streakCount').textContent = streak;
-  document.getElementById('pctDone').textContent    = Math.round((total / 60) * 100) + '%';
-  document.getElementById('weekFill').style.width   = (wkDone / 5 * 100) + '%';
+    document.getElementById("timer").innerText =
+      `${m}:${s.toString().padStart(2,"0")}`;
+
+    if(time<=0){
+      clearInterval(timer);
+      alert("Done");
+    }
+  },1000);
 }
 
-function changeWeek(dir) {
-  state.week = Math.max(1, Math.min(12, state.week + dir));
-  save(state);
-  document.getElementById('currentWeekDisplay').textContent = state.week;
-  document.getElementById('weekLabel').textContent = 'WEEK ' + state.week;
-  renderDays();
+function endWorkout(){
+  clearInterval(timer);
+  document.getElementById("active").style.display="none";
+  time=60*60;
 }
 
-function resetWeek() {
-  const w = state.week;
-  WEEK_DAYS.forEach((_, i) => delete state.days[`w${w}d${i}`]);
-  save(state); renderDays();
-}
-
-// ── WEIGHTS ──────────────────────────────────────────────────────────────────
-function renderWeights() {
-  const grid = document.getElementById('weightsGrid');
-  grid.innerHTML = '';
-  EXERCISES.forEach(ex => {
-    const saved = state.weights[ex.id] || { current: ex.start, pr: ex.start };
-    const card  = document.createElement('div');
-    card.className = 'weight-card';
-    card.innerHTML = `
-      <div class="weight-muscle">${ex.muscle}</div>
-      <div class="weight-exercise">${ex.name}</div>
-      <div class="weight-input-row">
-        <input class="weight-input" type="number" min="0" max="999" placeholder="—"
-          value="${saved.current || ''}" />
-        <span class="weight-unit">lbs</span>
-      </div>
-      <div class="weight-pr ${saved.pr ? 'show' : ''}" id="pr_${ex.id}">↑ PR: ${saved.pr || '—'} lbs</div>
-      ${ex.start ? `<div class="weight-start">started: ${ex.start} lbs</div>` : ''}
-    `;
-    const inp = card.querySelector('input');
-    inp.addEventListener('input', () => {
-      const val   = parseInt(inp.value) || 0;
-      const oldPr = parseInt(state.weights[ex.id]?.pr) || 0;
-      const newPr = Math.max(val, oldPr);
-      state.weights[ex.id] = { current: val, pr: newPr };
-      save(state);
-      const prEl = document.getElementById('pr_' + ex.id);
-      prEl.textContent = '↑ PR: ' + newPr + ' lbs';
-      prEl.classList.add('show');
-    });
-    grid.appendChild(card);
-  });
-}
-
-// ── INIT ─────────────────────────────────────────────────────────────────────
-document.getElementById('currentWeekDisplay').textContent = state.week;
-document.getElementById('weekLabel').textContent = 'WEEK ' + state.week;
-renderDays();
-renderWeights();
 </script>
+
 </body>
 </html>
